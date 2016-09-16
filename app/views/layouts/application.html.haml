@@ -1,0 +1,23 @@
+!!!
+%html
+  %head
+    %title TestYesparkCm
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=AIzaSyD-2ua0uKp8auNV0wTffKvkgKBuCfIKRLY&libraries=places"
+    = csrf_meta_tags
+  %body
+    #navbar-header.collapse.navbar-toggleable-xs
+      .navbar-brand YesParkTest
+      %ul.nav.navbar-nav
+        - if user_signed_in?
+          %li.nav-item
+            = link_to 'Déconection', destroy_user_session_path, method: :delete, class: 'nav-link'
+          %li.nav-item
+            = link_to 'Parkings', parkings_path, class: 'nav-link'
+          %li.nav-item
+            = link_to 'Maps', maps_parkings_path, class: 'nav-link'
+        - else
+          %li.nav-item
+            = link_to 'Connexion', new_user_session_path, class: 'nav-link'
+    = yield

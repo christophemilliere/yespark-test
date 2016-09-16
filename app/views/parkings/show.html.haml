@@ -1,0 +1,34 @@
+%p
+  %b Name:
+  = @parking.name
+%p
+  %b Address:
+  = @parking.address
+%p
+  %b Available:
+  = @parking.available
+%p
+  %b Has camera:
+  = @parking.has_camera
+%p
+  %b Has watchman:
+  = @parking.has_watchman
+%p
+  %b Zip code:
+  = @parking.zip_code
+%p
+  %b District:
+  = @parking.district
+%p
+  %b City:
+  = @parking.city
+%p
+  %b Main picture:
+  = @parking.main_picture
+%p
+  %b Price month:
+  = @parking.price_month
+
+= link_to 'Edit', edit_parking_path(@parking)
+\|
+= link_to 'Back', parkings_path

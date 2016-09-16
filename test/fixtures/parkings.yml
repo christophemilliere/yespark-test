@@ -1,0 +1,56 @@
+# == Schema Information
+#
+# Table name: parkings
+#
+#  id           :integer          not null, primary key
+#  lat          :float
+#  lng          :float
+#  name         :string
+#  address      :string
+#  available    :boolean
+#  slug         :string
+#  has_camera   :boolean
+#  has_watchman :boolean
+#  zip_code     :string
+#  district     :string
+#  city         :string
+#  main_picture :string
+#  price_month  :decimal(, )
+#  user_id      :integer
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  lat: 1.5
+  lng: 1.5
+  name: MyString
+  address: MyString
+  available: false
+  slug: MyString
+  has_camera: false
+  has_watchman: false
+  zip_code: MyString
+  district: MyString
+  city: MyString
+  main_picture: MyString
+  price_month: 9.99
+  user_id: 
+
+two:
+  lat: 1.5
+  lng: 1.5
+  name: MyString
+  address: MyString
+  available: false
+  slug: MyString
+  has_camera: false
+  has_watchman: false
+  zip_code: MyString
+  district: MyString
+  city: MyString
+  main_picture: MyString
+  price_month: 9.99
+  user_id: 

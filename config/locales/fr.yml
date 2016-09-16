@@ -1,0 +1,24 @@
+fr:
+  activerecord:
+    attributes:
+      user:
+        email: "E-mail address"
+    errors:
+      models:
+        parking:
+          attributes:
+            name:
+              blank: "is required"
+            address:
+              blank: "is required"
+            zip_code:
+              blank: "is required"
+            city:
+              blank: "is required"
+  number:
+      currency:
+        format:
+          format: "%n %u"
+          separator: ","
+          delimiter: "."
+          unit: "€"

@@ -1,0 +1,35 @@
+%p Maps
+#map{ style: 'height: 500px'}
+
+
+:javascript
+  var map;
+
+  jQuery(function($) {
+      $(document).ready(function() {
+        var locations =  #{@parking_info.to_json}
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 11,
+          center: new google.maps.LatLng(48.866667, 2.333333),
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        });
+        var infowindow = new google.maps.InfoWindow();
+        var marker, i;
+
+        for (i = 0; i < locations.length; i++) {
+          marker = new google.maps.Marker({
+            position: new google.maps.LatLng(locations[i].lat, locations[i].lng),
+            map: map
+          });
+
+          google.maps.event.addListener(marker, 'click', (function(marker, i) {
+            return function() {
+              infowindow.setContent(locations[i].name);
+              infowindow.open(map, marker);
+            }
+          })(marker, i));
+        }
+
+
+      });
+  });
