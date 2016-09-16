@@ -45,7 +45,7 @@ class ParkingsController < ApplicationController
   # DELETE /parkings/1
   def destroy
     @parking.destroy
-    redirect_to parkings_url, notice: 'Vous avez bien supprimé le parking !!'
+    redirect_to parkings_path, notice: 'Vous avez bien supprimé le parking !!'
   end
 
   #GET /parkings/maps
