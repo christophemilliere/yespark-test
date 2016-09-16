@@ -3,9 +3,9 @@
   %head
     %title TestYesparkCm
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js'
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{ENV["goole_api"]}&libraries=places"
-    = javascript_include_tag :defaults
     = csrf_meta_tags
   %body
     #navbar-header.collapse.navbar-toggleable-xs
