@@ -4,6 +4,7 @@
       %tr
         %th Nom du parking
         %th adresse
+        %th Disponible
         %th Caméra de surveillance
         %th Gardien
         %th Tarif
@@ -15,6 +16,7 @@
         %tr
           %th= parking.name
           %th= parking.full_address
+          %th= parking.get_available
           %th= parking.get_has_camera
           %th= parking.get_has_watchman
           %th= number_to_currency(parking.price_month)

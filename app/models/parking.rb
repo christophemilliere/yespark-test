@@ -46,6 +46,11 @@ class Parking < ActiveRecord::Base
     'oui'
   end
 
+  def get_available
+    return 'Non' unless available
+    'oui'
+  end
+
   private
 
   def set_slug

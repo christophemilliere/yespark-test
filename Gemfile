@@ -31,6 +31,7 @@ gem 'geokit', '~> 1.10'
 gem 'annotate'
 gem 'geokit', '~> 1.10'
 gem 'active_model_serializers', '~> 0.10.0'
+gem "figaro"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
