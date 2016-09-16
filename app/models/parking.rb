@@ -22,15 +22,17 @@
 #
 
 class Parking < ActiveRecord::Base
+  extend FriendlyId
+
   belongs_to :user
 
   validates_uniqueness_of :name, :slug
   validates_presence_of :name, :address, :zip_code, :city
 
-  before_validation :set_slug
-
   before_create :set_district, :set_longitude_latitude
   before_update :set_district, :set_longitude_latitude
+
+  friendly_id :name, use: :slugged
 
   def full_address
     "#{ address}, #{city} #{zip_code}"
@@ -51,11 +53,11 @@ class Parking < ActiveRecord::Base
     'oui'
   end
 
-  private
-
-  def set_slug
-    self.slug = name.parameterize
+  def get_district
+    return district if district != "0"
   end
+
+  private
 
   def set_district
     self.district = (city == 'Paris')? zip_code[-2,2] : "0"

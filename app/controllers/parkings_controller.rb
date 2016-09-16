@@ -23,11 +23,10 @@ class ParkingsController < ApplicationController
   end
 
   # POST /parkings
-  # POST /parkings.json
   def create
     @parking = current_user.parkings.new(parking_params)
     if @parking.save
-      redirect_to @parking, notice: 'Parking crée'
+      redirect_to parkings_path, notice: 'Parking crée'
     else
       render :new
     end
@@ -36,7 +35,7 @@ class ParkingsController < ApplicationController
   # PATCH/PUT /parkings/1
   def update
     if @parking.update(parking_params)
-      redirect_to @parking, notice: 'Mise à jour du parking'
+      redirect_to parkings_path, notice: 'Mise à jour du parking'
     else
       render :edit
     end
@@ -61,7 +60,7 @@ class ParkingsController < ApplicationController
 
   private
     def set_parking
-      @parking = current_user.parkings.find(params[:id])
+      @parking = current_user.parkings.friendly.find(params[:id])
     end
 
     def parking_params

@@ -21,4 +21,10 @@
         - else
           %li.nav-item
             = link_to 'Connexion', new_user_session_path, class: 'nav-link'
+    -if notice
+      .alert.alert-info
+        = notice
+    - if alert
+      .alert.alert-danger
+        = alert
     = yield

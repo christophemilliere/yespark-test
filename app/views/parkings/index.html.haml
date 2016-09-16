@@ -2,26 +2,30 @@
   %table.table
     %thead.thead-inverse
       %tr
+        %th #
         %th Nom du parking
         %th adresse
+        %th Arrondissement
         %th Disponible
         %th Caméra de surveillance
         %th Gardien
         %th Tarif
-        %th Voir
         %th Editer
         %th Supprimer
     %tbody
       - @parkings.each do |parking|
-        %tr
+        - image = (parking.main_picture.nil?)?  "http://placehold.it/50x50" : parking.main_picture
+        %tr.paragraphe
+          %th
+            %img{ src: "#{image}", width: 50, height: 50}
           %th= parking.name
           %th= parking.full_address
+          %th= parking.get_district
           %th= parking.get_available
           %th= parking.get_has_camera
           %th= parking.get_has_watchman
           %th= number_to_currency(parking.price_month)
-          %td= link_to 'Voir', parking, class: 'btn btn-outline-primary'
-          %td= link_to 'Editer', edit_parking_path(parking), class: 'btn btn-outline-info'
-          %td= button_to 'Supprimer', parking_path(parking), method: :delete, data: { :confirm => 'Are you sure?' }, class: 'btn btn-outline-danger'
+          %td= link_to 'Editer', edit_parking_path(parking.slug), class: 'btn btn-outline-info'
+          %td= button_to 'Supprimer', parking_path(parking.slug), method: :delete, class: 'btn btn-outline-danger'
 
 = link_to 'New Parking', new_parking_path, class: 'btn btn-outline-primary'
