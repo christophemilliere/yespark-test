@@ -1,6 +1,6 @@
 class ParkingsController < ApplicationController
   before_action :set_parking, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: [:index, :show, :edit, :update, :destroy]
 
   # GET /parkings
   # GET /parkings.json
