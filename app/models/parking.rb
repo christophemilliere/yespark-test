@@ -55,6 +55,7 @@ class Parking < ActiveRecord::Base
 
   def get_district
     return district if district != "0"
+    'Aucun arrondissement'
   end
 
   private
